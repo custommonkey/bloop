@@ -145,7 +145,7 @@ object Commands {
   case class Console(
       @ExtraName("p")
       @HelpMessage("The projects to run the console at (will be inferred from remaining cli args).")
-      project: String = "",
+      project: List[String] = Nil,
       @HelpMessage("Compile the project incrementally. By default, true.")
       incremental: Boolean = true,
       @HelpMessage("Pipeline the compilation of modules in your build. By default, false.")
@@ -161,7 +161,7 @@ object Commands {
       @ExtraName("p")
       @HelpMessage(
         "The project to run (will be inferred from remaining cli args). Requires Node.js to be in $PATH for Scala.js.")
-      project: String = "",
+      project: List[String] = Nil,
       @ExtraName("m")
       @HelpMessage("The main class to run. Leave unset to let bloop select automatically.")
       main: Option[String] = None,
@@ -186,7 +186,7 @@ object Commands {
   case class Link(
       @ExtraName("p")
       @HelpMessage("The project to run (will be inferred from remaining cli args).")
-      project: String = "",
+      project: List[String] = Nil,
       @ExtraName("m")
       @HelpMessage("The main class to link. Leave unset to let bloop select automatically.")
       main: Option[String] = None,
